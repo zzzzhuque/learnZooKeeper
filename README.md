@@ -1,3 +1,7 @@
+# 客户端
+
+- 启动客户端：./zkCli.sh -server 172.17.0.12:2181
+
 # 节点
 
 注意和server的概念区分
@@ -36,3 +40,18 @@
 - 创建临时顺序编号目录节点：create -e -s /sanguo/wuguo "zhouyu"
 
 - 修改节点数据值：set /sanguo/weiguo "simayi"
+
+# 监听器原理
+
+![img.png](img/img.png)
+
+- 监听节点值：get -w /sanguo 若通过set修改节点值，会返回WATCHER::WatchedEvent state:SyncConnected type:NodeDataChanged path:/sanguo
+  注意，这样设置只注册一次，下次改变节点值不会监听
+  
+- 监听节点路径变化：ls -w /sanguo 若通过create /sanguo/jin "simayi"，会返回监听结果
+
+- 删除节点：delete /sanguo/jin
+
+- 递归删除节点：deleteall /sanguo
+
+- 查看节点状态：stat /sanguo
