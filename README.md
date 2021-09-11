@@ -57,3 +57,31 @@
 - 递归删除节点：deleteall /sanguo
 
 - 查看节点状态：stat /sanguo
+
+# 客户端向服务端写数据的流程
+
+## 写入请求直接发送给Leader
+
+![写入请求直接发送给Leader节点.png](img/写入请求直接发送给Leader节点.png)
+
+## 写入请求直接发送给Follower
+
+![写入请求直接发送给Follower节点.png](img/写入请求直接发送给Follower节点.png)
+
+# 案例-服务器动态上下线
+
+```bash
+# 预备知识
+# maven编译
+mvn compile
+# 运行项目
+mvn exec:java -Dexec.mainClass="com.zhutao.zk.ZkClientWatch"
+```
+
+1、服务端上线时去zk注册信息
+
+2、客户端向zk获取到当前在线服务器列表，并且注册监听
+
+3、服务器下线
+
+4、客户端得到服务器下线通知

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1bdc61d7-2c3b-43a3-86c3-69b6d92ec593" name="bill.zt">
+        <fileTransfer rootFolder="/home/bill.zt/project/learnZooKeeper" accessType="SFTP" host="11.159.185.80" port="22" sshConfigId="92c6bcf8-d889-4be7-943d-3144c6f2184f" sshConfig="bill.zt@11.159.185.80:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
