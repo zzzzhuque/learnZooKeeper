@@ -78,6 +78,8 @@ mvn compile
 mvn exec:java -Dexec.mainClass="com.zhutao.zk.ZkClientWatch"
 ```
 
+![服务器动态上下线.png](img/服务器动态上下线.png)
+
 1、服务端上线时去zk注册信息
 
 2、客户端向zk获取到当前在线服务器列表，并且注册监听
