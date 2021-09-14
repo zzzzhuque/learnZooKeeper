@@ -75,7 +75,7 @@
 # maven编译
 mvn compile
 # 运行项目
-mvn exec:java -Dexec.mainClass="com.zhutao.zk.ZkClientWatch"
+mvn exec:java -Dexec.mainClass="com.zhutao.case1.DistributeServer" -Dexec.args="hadoop102"
 ```
 
 ![服务器动态上下线.png](img/服务器动态上下线.png)
@@ -87,3 +87,7 @@ mvn exec:java -Dexec.mainClass="com.zhutao.zk.ZkClientWatch"
 3、服务器下线
 
 4、客户端得到服务器下线通知
+
+# 案例-分布式锁
+
+![分布式锁分析.png](img/分布式锁分析.png)
