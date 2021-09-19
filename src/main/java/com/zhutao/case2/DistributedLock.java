@@ -30,7 +30,7 @@ public class DistributedLock {
                 }
 
                 // waitLatch如果是删除该节点的操作，可以释放
-                if (watchedEvent.getType() == Event.EventType.NodeDeleted && watchedEvent.getType().equals(waitPath)) {
+                if (watchedEvent.getType() == Event.EventType.NodeDeleted && watchedEvent.getPath().equals(waitPath)) {
                     waitLatch.countDown();
                 }
             }
