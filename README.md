@@ -122,4 +122,39 @@ A1和A5不断发起Propose，出现活锁问题。造成这种情况的原因是
 造成迟迟无法达成一致的情况。针对这种情况，一种改进的paxos算法被提出：从系统中选出一个节点作为Leader，只有Leaderne能够
 发起提案，这样，一次Paxos流程中只有一个proposer，不会出现活锁问题，此时只会出现case1。
 
-## ZAB算法
+## ZAB协议
+
+Zab协议的全称是 Zookeeper Atomic Broadcast （Zookeeper原子广播）。Zab协议借鉴了Paxos算法，是为分布式协调服务
+Zookeeper专门设计的一种**支持崩溃恢复**的原子广播协议 ，是Zookeeper保证数据一致性的核心算法。基于该协议，zk实现了一种主
+从模型（即Leader和Follower模型）的系统架构来保证集群中各个副本之间数据的一致性。这里的主从系统架构模型，就是指只有一台客
+户端（Leader）负责处理外部的写事务请求，然后Leader客户端将数据同步到其他Follower节点。
+
+ZAB协议包括两种基本的模式：消息广播、崩溃恢复
+
+### 消息广播
+
+![消息广播.png](img/消息广播.png)
+
+### 崩溃恢复-异常假设
+
+![异常假设.png](img/异常假设.png)
+
+### 崩溃恢复-Leader选举
+
+![Leader选举.png](img/Leader选举.png)
+
+### 崩溃恢复-数据恢复
+
+![数据恢复.png](img/数据恢复.png)
+
+# CAP理论
+
+- 一致性（C：Consistency）
+
+- 可用性（A：available）
+
+- 分区容错性（P：Partition Tolerance）
+
+一个分布式系统不可能同时满足CAP，但P是必须的，所以往往选择AP或者CP
+
+![CAP.png](img/CAP.png)
